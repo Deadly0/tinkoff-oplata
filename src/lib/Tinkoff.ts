@@ -10,7 +10,7 @@ import {InitOptions, InitResponseBody} from './api/Init';
 
 import {OptionsBase} from "./api/OptionsBase";
 import {Notification} from "./api/Notification";
-import {ResendResponseBody, ResendOptions} from "./api/Resend";
+import {ResendResponseBody} from "./api/Resend";
 import {AddCustomerOptions, AddCustomerResponseBody} from "./api/card/AddCustomer";
 import {GetCustomerOptions, GetCustomerResponseBody} from "./api/card/GetCustomer";
 import {RemoveCustomerOptions, RemoveCustomerResponseBody} from "./api/card/RemoveCustomer";
@@ -75,10 +75,8 @@ export class Tinkoff {
         return this.perform<GetStateResponseBody>(URLs.GET_STATE, options);
     }
 
-    resend(options?: ResendOptions) {
-        let resultOptions = options ?? {};
-
-        return this.perform<ResendResponseBody>(URLs.RESEND, resultOptions);
+    resend() {
+        return this.perform<ResendResponseBody>(URLs.RESEND, {});
     }
 
     addCustomer(options: AddCustomerOptions) {
@@ -102,30 +100,24 @@ export class Tinkoff {
     }
 
     isTokenValid(data: Notification) {
-        let bodyWithoutToken = Object.assign({Password: this.password}, data, {Token: undefined});
-        let token = this.generateToken(bodyWithoutToken);
-        return data.Token === token;
+        return data.Token === this.generateToken({...data, Password: this.password});
     }
 
     private generateToken(body: Object) {
-        const values = Object.keys(body)
-            .filter(k => !['DATA', 'Receipt']
-            .includes(k))
+        const request = {...body, Password: this.password};
+
+        const values = Object.keys(request)
+            .filter(k => !['DATA', 'Receipt', 'Token'].includes(k))
             .sort()
-            .map((key) => body[key])
+            .map((key) => request[key])
             .join('');
 
         return crypto.createHash('sha256').update(values).digest('hex');
     };
 
     private perform<T>(url: string, options: OptionsBase) {
-        const request = Object.assign({}, options, {
-            TerminalKey: this.terminalKey,
-            Password: this.password,
-        });
+        const request = {...options, TerminalKey: this.terminalKey};
 
-        const requestWithToken = Object.assign(request, {Token: this.generateToken(request)});
-
-        return axios.post<T>(url, requestWithToken);
+        return axios.post<T>(url, {...request, Token: this.generateToken(request)});
     }
 }

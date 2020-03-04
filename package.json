@@ -1,7 +1,7 @@
 {
   "name": "tinkoff-oplata-promise",
-  "version": "0.0.20",
-  "description": "NodeJS client for internet acquiring of Tinkoff Bank",
+  "version": "0.0.21",
+  "description": "NodeJS client for internet acquiring of Tinkoff Bank with promise interface",
   "main": "index.js",
   "scripts": {
     "build": "./node_modules/.bin/gulp build",

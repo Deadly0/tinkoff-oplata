@@ -1,14 +1,3 @@
-export interface ResendOptions {
-    /**
-     * Id платежа по которому необходимо получить нотификацию их архива
-     */
-    PaymentId: number | string;
-    /**
-     * Тип нотификации который необходимо получить из архива повторно. *Параметр обязателен если передан PaymentId
-     */
-    NotificationType: string;
-}
-
 export interface ResendResponseBody {
     /**
      * Платежный ключ, выдается Продавцу при заведении терминала
