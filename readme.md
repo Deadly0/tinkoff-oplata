@@ -1,2 +1,2 @@
-# tinkoff-oplata
-NodeJS client for internet acquiring of Tinkoff Bank
+# tinkoff-oplata-promise
+NodeJS client for internet acquiring of Tinkoff Bank using axios

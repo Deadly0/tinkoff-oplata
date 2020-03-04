@@ -8,11 +8,10 @@ export {ResendOptions, ResendResponseBody} from './lib/api/Resend';
 export {Notification} from './lib/api/Notification';
 export {PaymentStatus} from './lib/api/PaymentStatus';
 export {NotificationType} from './lib/api/NotificationType';
-
-import {AddCustomerOptions, AddCustomerResponseBody} from "./lib/api/card/AddCustomer";
-import {GetCustomerOptions, GetCustomerResponseBody} from "./lib/api/card/GetCustomer";
-import {RemoveCardOptions, RemoveCardResponseBody} from "./lib/api/card/RemoveCard";
-import {RemoveCustomerOptions, RemoveCustomerResponseBody} from "./lib/api/card/RemoveCustomer";
-import {GetCardListOptions, GetCardListResponseBody} from "./lib/api/card/GetCardList";
+export {AddCustomerOptions, AddCustomerResponseBody} from "./lib/api/card/AddCustomer";
+export {GetCustomerOptions, GetCustomerResponseBody} from "./lib/api/card/GetCustomer";
+export {RemoveCardOptions, RemoveCardResponseBody} from "./lib/api/card/RemoveCard";
+export {RemoveCustomerOptions, RemoveCustomerResponseBody} from "./lib/api/card/RemoveCustomer";
+export {GetCardListOptions, GetCardListResponseBody} from "./lib/api/card/GetCardList";
 
 export {Tinkoff, TinkoffOptions} from './lib/Tinkoff';

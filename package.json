@@ -1,6 +1,6 @@
 {
-  "name": "tinkoff-oplata",
-  "version": "0.0.19",
+  "name": "tinkoff-oplata-promise",
+  "version": "0.0.20",
   "description": "NodeJS client for internet acquiring of Tinkoff Bank",
   "main": "index.js",
   "scripts": {
@@ -10,26 +10,25 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/jerkly/tinkoff-oplata.git"
+    "url": "git+https://github.com/Deadly0/tinkoff-oplata.git"
   },
   "author": "Nikolay Martynenko <martynenko.nikolay@gmail.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/jerkly/tinkoff-oplata/issues"
+    "url": "https://github.com/Deadly0/tinkoff-oplata/issues"
   },
-  "homepage": "https://github.com/jerkly/tinkoff-oplata#readme",
+  "homepage": "https://github.com/Deadly0/tinkoff-oplata#readme",
   "dependencies": {
-    "request": "^2.88.0"
+    "axios": "^0.19.2"
   },
   "devDependencies": {
-    "@types/request": "^2.48.1",
-    "@types/es6-shim": "^0.31.39",
+    "@types/node": "^13.7.7",
     "gulp": "^4.0.1",
     "gulp-clean": "^0.4.0",
     "gulp-count": "^1.0.0",
     "gulp-sourcemaps": "^2.1.1",
     "gulp-typescript": "^4.0.2",
     "merge-stream": "^1.0.1",
-    "typescript": "^2.9.2"
+    "typescript": "^3.8.3"
   }
 }
